@@ -26,7 +26,7 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Volistx\\ValidationProvider"
+        "Volistx\\Validation\\ValidationProvider"
       ]
     }
   }
