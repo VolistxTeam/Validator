@@ -5,7 +5,7 @@ namespace Volistx\Validation\Modules;
 
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
-use Volistx\Validation\Rules\CountryRequest;
+use Volistx\KernelValidator\Rules\CountryRequest;
 
 class PersonalTokensModule extends ValidationBase
 {
