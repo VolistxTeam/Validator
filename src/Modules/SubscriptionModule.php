@@ -136,4 +136,38 @@ class SubscriptionModule extends ValidationBase
             'cancels_at.date' => trans('volistx::cancels_at.date'),
         ]);
     }
+
+    public function generateGetLogsValidation(array $inputs): \Illuminate\Contracts\Validation\Validator
+    {
+        return Validator::make($inputs, [
+            'subscription_id' => ['bail', 'required', 'uuid', 'exists:subscriptions,id'],
+            'user_id' => ['bail', 'required', 'uuid', 'exists:users,id'],
+            'page' => ['bail', 'sometimes', 'integer'],
+            'limit' => ['bail', 'sometimes', 'integer'],
+        ], [
+            'subscription_id.required' => trans('volistx::subscription_id.required'),
+            'subscription_id.uuid' => trans('volistx::subscription_id.uuid'),
+            'subscription_id.exists' => trans('volistx::subscription_id.exists'),
+            'user_id.required' => trans('volistx::user_id.required'),
+            'user_id.uuid' => trans('volistx::user_id.uuid'),
+            'user_id.exists' => trans('volistx::user_id.exists'),
+            'page.integer' => trans('volistx::page.integer'),
+            'limit.integer' => trans('volistx::limit.integer'),
+        ]);
+    }
+
+    public function generateGetUsageValidation(array $inputs): \Illuminate\Contracts\Validation\Validator
+    {
+        return Validator::make($inputs, [
+            'subscription_id' => ['bail', 'required', 'uuid', 'exists:subscriptions,id'],
+            'user_id' => ['bail', 'required', 'uuid', 'exists:users,id'],
+        ], [
+            'subscription_id.required' => trans('volistx::subscription_id.required'),
+            'subscription_id.uuid' => trans('volistx::subscription_id.uuid'),
+            'subscription_id.exists' => trans('volistx::subscription_id.exists'),
+            'user_id.required' => trans('volistx::user_id.required'),
+            'user_id.uuid' => trans('volistx::user_id.uuid'),
+            'user_id.exists' => trans('volistx::user_id.exists'),
+        ]);
+    }
 }
