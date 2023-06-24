@@ -9,7 +9,7 @@ use Volistx\Validation\Modules\UserLogModule;
 use Volistx\Validation\Modules\UserModule;
 use Volistx\Validation\Modules\ValidationBase;
 
-trait HasKernelValidation
+trait HasKernelValidations
 {
     public function GetModuleValidation(string $key): ?ValidationBase
     {
