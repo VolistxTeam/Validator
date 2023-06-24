@@ -8,11 +8,10 @@ use Volistx\Validation\Modules\PlanModule;
 use Volistx\Validation\Modules\SubscriptionModule;
 use Volistx\Validation\Modules\UserLogModule;
 use Volistx\Validation\Modules\UserModule;
-use Volistx\Validation\Modules\ValidationBase;
 
 trait HasKernelValidations
 {
-    public function GetModuleValidation(string $key): ?ValidationBase
+    public function GetModuleValidation(string $key): PlanModule|SubscriptionModule|UserModule|AdminLogModule|UserLogModule|PersonalTokensModule|null
     {
         return match ($key) {
             "user" => new UserModule(),
