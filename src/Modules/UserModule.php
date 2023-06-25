@@ -10,7 +10,11 @@ class UserModule extends ValidationBase
 
     public function generateCreateValidation(array $inputs): \Illuminate\Contracts\Validation\Validator
     {
-        return Validator::make([], []);
+        return Validator::make($inputs, [
+            'user_id' => ['sometimes', 'uuid'],
+        ], [
+            'user_id.uuid' => trans('volistx::user_id.uuid'),
+        ]);
     }
 
     public function generateUpdateValidation(array $inputs): \Illuminate\Contracts\Validation\Validator
