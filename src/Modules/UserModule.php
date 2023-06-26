@@ -11,7 +11,7 @@ class UserModule extends ValidationBase
     public function generateCreateValidation(array $inputs): \Illuminate\Contracts\Validation\Validator
     {
         return Validator::make($inputs, [
-            'user_id' => ['sometimes', 'uuid'],
+            'user_id' => ['bail', 'sometimes', 'nullable', 'uuid'],
         ], [
             'user_id.uuid' => trans('volistx::user_id.uuid'),
         ]);
@@ -21,7 +21,7 @@ class UserModule extends ValidationBase
     {
         return Validator::make($inputs, [
             'user_id' => ['bail', 'required', 'uuid'],
-            'is_active' => ['bail', 'sometimes', 'boolean'],
+            'is_active' => ['bail', 'sometimes', 'nullable', 'boolean'],
         ], [
             'user_id.uuid' => trans('volistx::user_id.uuid'),
             'user_id.integer' => trans('volistx::user_id.integer'),
@@ -47,7 +47,7 @@ class UserModule extends ValidationBase
     {
         return Validator::make($inputs, [
             'user_id' => ['bail', 'required', 'uuid'],
-            'is_active' => ['bail', 'sometimes', 'boolean'],
+            'is_active' => ['bail', 'sometimes', 'nullable', 'boolean'],
         ], [
             'user_id.uuid' => trans('volistx::user_id.uuid'),
             'user_id.integer' => trans('volistx::user_id.integer'),
