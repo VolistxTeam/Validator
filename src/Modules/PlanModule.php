@@ -10,11 +10,11 @@ class PlanModule extends ValidationBase
     {
         return Validator::make($inputs, [
             'name' => ['bail', 'required', 'string'],
-            'tag' => ['bail', 'required', 'string', 'unique:plans,tag'],
+            'tag' => ['bail', 'required', 'string', $this->db_checks ? 'unique:plans,tag' : ''],
             'description' => ['bail', 'required', 'string'],
             'data' => ['bail', 'required', 'array'],
             'price' => ['bail', 'required', 'numeric'],
-            'tier' => ['bail', 'required', 'integer', 'unique:plans,tier'],
+            'tier' => ['bail', 'required', 'integer', $this->db_checks ? 'unique:plans,tier' : ''],
             'custom' => ['bail', 'required', 'boolean'],
         ], [
             'name.required' => trans('volistx::name.required'),
