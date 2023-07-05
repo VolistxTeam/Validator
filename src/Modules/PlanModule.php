@@ -39,7 +39,7 @@ class PlanModule extends ValidationBase
     public function generateUpdateValidation(array $inputs): \Illuminate\Contracts\Validation\Validator
     {
         return Validator::make($inputs, [
-            'plan_id' => ['bail', 'required', 'uuid', 'exists:plans,id'],
+            'plan_id' => ['bail', 'required', 'uuid', $this->db_checks ? 'exists:plans,id' : ''],
             'name' => ['bail', 'sometimes', 'string'],
             'tag' => ['bail', 'sometimes', 'string', 'unique:plans,tag'],
             'description' => ['bail', 'sometimes', 'string'],
@@ -66,7 +66,7 @@ class PlanModule extends ValidationBase
     public function generateGetValidation(array $inputs): \Illuminate\Contracts\Validation\Validator
     {
         return Validator::make($inputs, [
-            'plan_id' => ['bail', 'required', 'uuid', 'exists:plans,id'],
+            'plan_id' => ['bail', 'required', 'uuid', $this->db_checks ? 'exists:plans,id' : ''],
         ], [
             'plan_id.required' => trans('volistx::plan_id.required'),
             'plan_id.uuid' => trans('volistx::plan_id.uuid'),
@@ -88,7 +88,7 @@ class PlanModule extends ValidationBase
     public function generateDeleteValidation(array $inputs): \Illuminate\Contracts\Validation\Validator
     {
         return Validator::make($inputs, [
-            'plan_id' => ['bail', 'required', 'uuid', 'exists:plans,id'],
+            'plan_id' => ['bail', 'required', 'uuid', $this->db_checks ? 'exists:plans,id' : ''],
         ], [
             'plan_id.required' => trans('volistx::plan_id.required'),
             'plan_id.uuid' => trans('volistx::plan_id.uuid'),

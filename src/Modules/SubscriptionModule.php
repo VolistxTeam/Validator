@@ -11,8 +11,8 @@ class SubscriptionModule extends ValidationBase
     {
         return Validator::make($inputs,
             [
-                'user_id' => ['bail', 'required', 'uuid', 'exists:users,id'],
-                'plan_id' => ['bail', 'required', 'uuid', 'exists:plans,id'],
+                'user_id' => ['bail', 'required', 'uuid', $this->db_checks ? 'exists:users,id' : ''],
+                'plan_id' => ['bail', 'required', 'uuid', $this->db_checks ? 'exists:plans,id' : ''],
                 'activated_at' => ['bail', 'required', 'date'],
                 'expires_at' => ['bail', 'present', 'date', 'nullable'],
             ],
@@ -34,9 +34,9 @@ class SubscriptionModule extends ValidationBase
     public function generateUpdateValidation(array $inputs): \Illuminate\Contracts\Validation\Validator
     {
         return Validator::make($inputs, [
-            'subscription_id' => ['bail', 'required', 'uuid', 'exists:subscriptions,id'],
-            'user_id' => ['bail', 'required', 'uuid', 'exists:users,id'],
-            'plan_id' => ['bail', 'sometimes', 'uuid', 'exists:plans,id'],
+            'subscription_id' => ['bail', 'required', 'uuid', $this->db_checks ? 'exists:subscriptions,id' : ''],
+            'user_id' => ['bail', 'required', 'uuid', $this->db_checks ? 'exists:users,id' : ''],
+            'plan_id' => ['bail', 'sometimes', 'uuid', $this->db_checks ? 'exists:plans,id' : ''],
             'status' => ['bail', 'sometimes', Rule::in([0, 1, 2, 3, 4])],
             'activated_at' => ['bail', 'sometimes', 'date'],
             'expires_at' => ['bail', 'present', 'date', 'nullable'],
@@ -61,8 +61,8 @@ class SubscriptionModule extends ValidationBase
     public function generateGetValidation(array $inputs): \Illuminate\Contracts\Validation\Validator
     {
         return Validator::make($inputs, [
-            'subscription_id' => ['bail', 'required', 'uuid', 'exists:subscriptions,id'],
-            'user_id' => ['bail', 'required', 'uuid', 'exists:users,id'],
+            'subscription_id' => ['bail', 'required', 'uuid', $this->db_checks ? 'exists:subscriptions,id' : ''],
+            'user_id' => ['bail', 'required', 'uuid', $this->db_checks ? 'exists:users,id' : ''],
         ], [
             'subscription_id.required' => trans('volistx::subscription_id.required'),
             'subscription_id.uuid' => trans('volistx::subscription_id.uuid'),
@@ -76,7 +76,7 @@ class SubscriptionModule extends ValidationBase
     public function generateGetAllValidation(array $inputs): \Illuminate\Contracts\Validation\Validator
     {
         return Validator::make($inputs, [
-            'user_id' => ['bail', 'required', 'uuid', 'exists:users,id'],
+            'user_id' => ['bail', 'required', 'uuid', $this->db_checks ? 'exists:users,id' : ''],
             'page' => ['bail', 'sometimes', 'integer'],
             'limit' => ['bail', 'sometimes', 'integer'],
         ], [
@@ -91,8 +91,8 @@ class SubscriptionModule extends ValidationBase
     public function generateDeleteValidation(array $inputs): \Illuminate\Contracts\Validation\Validator
     {
         return Validator::make($inputs, [
-            'subscription_id' => ['bail', 'required', 'uuid', 'exists:subscriptions,id'],
-            'user_id' => ['bail', 'required', 'uuid', 'exists:users,id'],
+            'subscription_id' => ['bail', 'required', 'uuid', $this->db_checks ? 'exists:subscriptions,id' : ''],
+            'user_id' => ['bail', 'required', 'uuid', $this->db_checks ? 'exists:users,id' : ''],
         ], [
             'subscription_id.required' => trans('volistx::subscription_id.required'),
             'subscription_id.uuid' => trans('volistx::subscription_id.uuid'),
@@ -106,8 +106,8 @@ class SubscriptionModule extends ValidationBase
     public function generateCancelValidation(array $inputs): \Illuminate\Contracts\Validation\Validator
     {
         return Validator::make($inputs, [
-            'subscription_id' => ['bail', 'required', 'uuid', 'exists:subscriptions,id'],
-            'user_id' => ['bail', 'required', 'uuid', 'exists:users,id'],
+            'subscription_id' => ['bail', 'required', 'uuid', $this->db_checks ? 'exists:subscriptions,id' : ''],
+            'user_id' => ['bail', 'required', 'uuid', $this->db_checks ? 'exists:users,id' : ''],
             'cancels_at' => ['bail', 'sometimes', 'date'],
         ], [
             'subscription_id.required' => trans('volistx::subscription_id.required'),
@@ -123,8 +123,8 @@ class SubscriptionModule extends ValidationBase
     public function generateUncancelValidation(array $inputs): \Illuminate\Contracts\Validation\Validator
     {
         return Validator::make($inputs, [
-            'subscription_id' => ['bail', 'required', 'uuid', 'exists:subscriptions,id'],
-            'user_id' => ['bail', 'required', 'uuid', 'exists:users,id'],
+            'subscription_id' => ['bail', 'required', 'uuid', $this->db_checks ? 'exists:subscriptions,id' : ''],
+            'user_id' => ['bail', 'required', 'uuid', $this->db_checks ? 'exists:users,id' : ''],
             'cancels_at' => ['bail', 'sometimes', 'date'],
         ], [
             'subscription_id.required' => trans('volistx::subscription_id.required'),
@@ -140,8 +140,8 @@ class SubscriptionModule extends ValidationBase
     public function generateGetLogsValidation(array $inputs): \Illuminate\Contracts\Validation\Validator
     {
         return Validator::make($inputs, [
-            'subscription_id' => ['bail', 'required', 'uuid', 'exists:subscriptions,id'],
-            'user_id' => ['bail', 'required', 'uuid', 'exists:users,id'],
+            'subscription_id' => ['bail', 'required', 'uuid', $this->db_checks ? 'exists:subscriptions,id' : ''],
+            'user_id' => ['bail', 'required', 'uuid', $this->db_checks ? 'exists:users,id' : ''],
             'page' => ['bail', 'sometimes', 'integer'],
             'limit' => ['bail', 'sometimes', 'integer'],
         ], [
@@ -159,8 +159,8 @@ class SubscriptionModule extends ValidationBase
     public function generateGetUsageValidation(array $inputs): \Illuminate\Contracts\Validation\Validator
     {
         return Validator::make($inputs, [
-            'subscription_id' => ['bail', 'required', 'uuid', 'exists:subscriptions,id'],
-            'user_id' => ['bail', 'required', 'uuid', 'exists:users,id'],
+            'subscription_id' => ['bail', 'required', 'uuid', $this->db_checks ? 'exists:subscriptions,id' : ''],
+            'user_id' => ['bail', 'required', 'uuid', $this->db_checks ? 'exists:users,id' : ''],
         ], [
             'subscription_id.required' => trans('volistx::subscription_id.required'),
             'subscription_id.uuid' => trans('volistx::subscription_id.uuid'),

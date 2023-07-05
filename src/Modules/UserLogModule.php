@@ -11,7 +11,7 @@ class UserLogModule extends ValidationBase
     public function generateCreateValidation(array $inputs): \Illuminate\Contracts\Validation\Validator
     {
         return Validator::make($inputs, [
-            'log_id' => ['bail', 'required', 'uuid', 'exists:user_logs,id'],
+            'log_id' => ['bail', 'required', 'uuid', $this->db_checks ? 'exists:user_logs,id' : ''],
         ], [
             'log_id.required' => trans('volistx::log_id.required'),
             'log_id.uuid' => trans('volistx::log_id.uuid'),
@@ -27,7 +27,7 @@ class UserLogModule extends ValidationBase
     public function generateGetValidation(array $inputs): \Illuminate\Contracts\Validation\Validator
     {
         return Validator::make($inputs, [
-            'log_id' => ['bail', 'required', 'uuid', 'exists:user_logs,id'],
+            'log_id' => ['bail', 'required', 'uuid', $this->db_checks ? 'exists:user_logs,id' : ''],
         ], [
             'log_id.required' => trans('volistx::log_id.required'),
             'log_id.uuid' => trans('volistx::log_id.uuid'),

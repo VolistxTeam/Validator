@@ -5,14 +5,14 @@ namespace Volistx\Validation\Modules;
 
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
-use Volistx\KernelValidator\Rules\CountryRequest;
+use Volistx\Validation\Rules\CountryRequest;
 
 class PersonalTokensModule extends ValidationBase
 {
     public function generateCreateValidation(array $inputs): \Illuminate\Contracts\Validation\Validator
     {
         return Validator::make($inputs, [
-            'user_id' => ['required', 'uuid', 'bail', 'exists:users,id'],
+            'user_id' => ['required', 'uuid', 'bail', $this->db_checks ? 'exists:users,id' : ''],
             'name' => ['required', 'string', 'max:255'],
             'expires_at' => ['bail', 'present', 'nullable', 'date'],
             'rate_limit_mode' => ['bail', 'sometimes', Rule::in([0, 1])],
@@ -54,7 +54,7 @@ class PersonalTokensModule extends ValidationBase
     public function generateUpdateValidation(array $inputs): \Illuminate\Contracts\Validation\Validator
     {
         return Validator::make(array_merge($inputs), [
-            'token_id' => ['required', 'uuid', 'bail', 'exists:personal_tokens,id'],
+            'token_id' => ['required', 'uuid', 'bail', $this->db_checks ? 'exists:personal_tokens,id' : ''],
             'name' => ['bail', 'sometimes', 'max:255'],
             'user_id' => ['bail', 'required', 'uuid', 'exists:users,id'],
             'expires_at' => ['bail', 'sometimes', 'date', 'nullable'],
@@ -99,7 +99,7 @@ class PersonalTokensModule extends ValidationBase
     public function generateGetValidation(array $inputs): \Illuminate\Contracts\Validation\Validator
     {
         return Validator::make($inputs, [
-            'token_id' => ['required', 'uuid', 'bail', 'exists:personal_tokens,id'],
+            'token_id' => ['required', 'uuid', 'bail', $this->db_checks ? 'exists:personal_tokens,id' : ''],
             'user_id' => ['bail', 'required', 'uuid', 'exists:users,id'],
 
         ], [
@@ -129,7 +129,7 @@ class PersonalTokensModule extends ValidationBase
     public function generateDeleteValidation(array $inputs): \Illuminate\Contracts\Validation\Validator
     {
         return Validator::make($inputs, [
-            'token_id' => ['required', 'uuid', 'bail', 'exists:personal_tokens,id'],
+            'token_id' => ['required', 'uuid', 'bail', $this->db_checks ? 'exists:personal_tokens,id' : ''],
             'user_id' => ['bail', 'required', 'uuid', 'exists:users,id'],
 
         ], [
@@ -146,7 +146,7 @@ class PersonalTokensModule extends ValidationBase
     public function generateResetValidation(array $inputs): \Illuminate\Contracts\Validation\Validator
     {
         return Validator::make($inputs, [
-            'token_id' => ['bail', 'required', 'uuid', 'exists:personal_tokens,id'],
+            'token_id' => ['bail', 'required', 'uuid', $this->db_checks ? 'exists:personal_tokens,id' : ''],
             'user_id' => ['bail', 'required', 'uuid', 'exists:users,id'],
 
         ], [
@@ -162,7 +162,7 @@ class PersonalTokensModule extends ValidationBase
     public function generateSyncValidation(array $inputs): \Illuminate\Contracts\Validation\Validator
     {
         return Validator::make($inputs, [
-            'user_id' => ['required', 'uuid', 'bail', 'exists:users,id'],
+            'user_id' => ['required', 'uuid', 'bail', $this->db_checks ? 'exists:users,id' : ''],
         ], [
             'user_id.required' => trans('volistx::user_id.required'),
             'user_id.uuid' => trans('volistx::user_id.uuid'),
