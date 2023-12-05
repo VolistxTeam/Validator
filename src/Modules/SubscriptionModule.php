@@ -120,12 +120,11 @@ class SubscriptionModule extends ValidationBase
         ]);
     }
 
-    public function generateUncancelValidation(array $inputs): \Illuminate\Contracts\Validation\Validator
+    public function generateRevertCancelValidation(array $inputs): \Illuminate\Contracts\Validation\Validator
     {
         return Validator::make($inputs, [
             'subscription_id' => ['bail', 'required', 'uuid', $this->db_checks ? 'exists:subscriptions,id' : ''],
             'user_id' => ['bail', 'required', 'uuid', $this->db_checks ? 'exists:users,id' : ''],
-            'cancels_at' => ['bail', 'sometimes', 'date'],
         ], [
             'subscription_id.required' => trans('volistx::subscription_id.required'),
             'subscription_id.uuid' => trans('volistx::subscription_id.uuid'),
@@ -133,7 +132,6 @@ class SubscriptionModule extends ValidationBase
             'user_id.required' => trans('volistx::user_id.required'),
             'user_id.uuid' => trans('volistx::user_id.uuid'),
             'user_id.exists' => trans('volistx::user_id.exists'),
-            'cancels_at.date' => trans('volistx::cancels_at.date'),
         ]);
     }
 
