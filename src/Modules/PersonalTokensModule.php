@@ -25,28 +25,28 @@ class PersonalTokensModule extends ValidationBase
             'disable_logging' => ['bail', 'sometimes', 'nullable', 'boolean'],
             'hmac_token' => ['bail', 'sometimes', 'max:255'],
         ], [
-            'user_id.required' => trans('volistx::user_id.required'),
-            'name.required' => trans('volistx::name.required'),
-            'name.max' => trans('volistx::name.max'),
-            'user_id.uuid' => trans('volistx::user_id.uuid'),
-            'user_id.exists' => trans('volistx::user_id.exists'),
-            'duration.required' => trans('volistx::duration.required'),
-            'expires_at.date' => trans('volistx::expires_at.date'),
-            'rate_limit_mode.required' => trans('volistx::rate_limit_mode.required'),
-            'rate_limit_mode.enum' => trans('volistx::rate_limit_mode.enum'),
-            'permissions.array' => trans('volistx::permissions.array'),
-            'permissions.*.string' => trans('volistx::permissions.*.string'),
-            'ip_rule.enum' => trans('volistx::ip_rule.enum'),
-            'ip_range.required_if' => trans('volistx::ip_range.required_if'),
-            'ip_range.array' => trans('volistx::ip_range.array'),
-            'ip_range.*.ip' => trans('volistx::ip_range.*.ip'),
-            'country_rule.required' => trans('volistx::country_rule.required'),
-            'country_rule.enum' => trans('volistx::country_rule.enum'),
-            'country_range.required_if' => trans('volistx::country_range.required_if'),
-            'country_range.array' => trans('volistx::country_range.array'),
-            'country_range.*.required_if' => trans('volistx::country_range.*.required_if'),
-            'disable_logging.boolean' => trans('volistx::disable_logging.boolean'),
-            'hmac_token.max' => trans('volistx::hmac_token.max'),
+            'user_id.required' => trans('volistx::messages.user_id.required'),
+            'name.required' => trans('volistx::messages.name.required'),
+            'name.max' => trans('volistx::messages.name.max'),
+            'user_id.uuid' => trans('volistx::messages.user_id.uuid'),
+            'user_id.exists' => trans('volistx::messages.user_id.exists'),
+            'duration.required' => trans('volistx::messages.duration.required'),
+            'expires_at.date' => trans('volistx::messages.expires_at.date'),
+            'rate_limit_mode.required' => trans('volistx::messages.rate_limit_mode.required'),
+            'rate_limit_mode.enum' => trans('volistx::messages.rate_limit_mode.enum'),
+            'permissions.array' => trans('volistx::messages.permissions.array'),
+            'permissions.*.string' => trans('volistx::messages.permissions.*.string'),
+            'ip_rule.enum' => trans('volistx::messages.ip_rule.enum'),
+            'ip_range.required_if' => trans('volistx::messages.ip_range.required_if'),
+            'ip_range.array' => trans('volistx::messages.ip_range.array'),
+            'ip_range.*.ip' => trans('volistx::messages.ip_range.*.ip'),
+            'country_rule.required' => trans('volistx::messages.country_rule.required'),
+            'country_rule.enum' => trans('volistx::messages.country_rule.enum'),
+            'country_range.required_if' => trans('volistx::messages.country_range.required_if'),
+            'country_range.array' => trans('volistx::messages.country_range.array'),
+            'country_range.*.required_if' => trans('volistx::messages.country_range.*.required_if'),
+            'disable_logging.boolean' => trans('volistx::messages.disable_logging.boolean'),
+            'hmac_token.max' => trans('volistx::messages.hmac_token.max'),
         ]);
     }
 
@@ -68,30 +68,30 @@ class PersonalTokensModule extends ValidationBase
             'disable_logging' => ['bail', 'sometimes', 'nullable', 'boolean'],
             'hmac_token' => ['bail', 'sometimes', 'max:255'],
         ], [
-            'token_id.required' => trans('volistx::token_id.required'),
-            'token_id.uuid' => trans('volistx::token_id.uuid'),
-            'token_id.exists' => trans('volistx::token_id.exists'),
-            'user_id.required' => trans('volistx::user_id.required'),
-            'user_id.uuid' => trans('volistx::user_id.uuid'),
-            'user_id.exists' => trans('volistx::user_id.exists'),
-            'name.required' => trans('volistx::name.required'),
-            'name.max' => trans('volistx::name.max'),
-            'expires_at.date' => trans('volistx::expires_at.date'),
-            'permissions.array' => trans('volistx::permissions.array'),
-            'permissions.*.string' => trans('volistx::permissions.*.string'),
-            'rate_limit_mode.enum' => trans('volistx::rate_limit_mode.enum'),
-            'ip_rule.required' => trans('volistx::ip_rule.required'),
-            'ip_rule.enum' => trans('volistx::ip_rule.enum'),
-            'ip_range.required_if' => trans('volistx::ip_range.required_if'),
-            'ip_range.array' => trans('volistx::ip_range.array'),
-            'ip_range.*.ip' => trans('volistx::ip_range.*.ip'),
-            'country_rule.required' => trans('volistx::country_rule.required'),
-            'country_rule.enum' => trans('volistx::country_rule.enum'),
-            'country_range.required_if' => trans('volistx::country_range.required_if'),
-            'country_range.array' => trans('volistx::country_range.array'),
-            'country_range.*.required_if' => trans('volistx::country_range.*.required_if'),
-            'disable_logging.boolean' => trans('volistx::disable_logging.boolean'),
-            'hmac_token.max' => trans('volistx::hmac_token.max'),
+            'token_id.required' => trans('volistx::messages.token_id.required'),
+            'token_id.uuid' => trans('volistx::messages.token_id.uuid'),
+            'token_id.exists' => trans('volistx::messages.token_id.exists'),
+            'user_id.required' => trans('volistx::messages.user_id.required'),
+            'user_id.uuid' => trans('volistx::messages.user_id.uuid'),
+            'user_id.exists' => trans('volistx::messages.user_id.exists'),
+            'name.required' => trans('volistx::messages.name.required'),
+            'name.max' => trans('volistx::messages.name.max'),
+            'expires_at.date' => trans('volistx::messages.expires_at.date'),
+            'permissions.array' => trans('volistx::messages.permissions.array'),
+            'permissions.*.string' => trans('volistx::messages.permissions.*.string'),
+            'rate_limit_mode.enum' => trans('volistx::messages.rate_limit_mode.enum'),
+            'ip_rule.required' => trans('volistx::messages.ip_rule.required'),
+            'ip_rule.enum' => trans('volistx::messages.ip_rule.enum'),
+            'ip_range.required_if' => trans('volistx::messages.ip_range.required_if'),
+            'ip_range.array' => trans('volistx::messages.ip_range.array'),
+            'ip_range.*.ip' => trans('volistx::messages.ip_range.*.ip'),
+            'country_rule.required' => trans('volistx::messages.country_rule.required'),
+            'country_rule.enum' => trans('volistx::messages.country_rule.enum'),
+            'country_range.required_if' => trans('volistx::messages.country_range.required_if'),
+            'country_range.array' => trans('volistx::messages.country_range.array'),
+            'country_range.*.required_if' => trans('volistx::messages.country_range.*.required_if'),
+            'disable_logging.boolean' => trans('volistx::messages.disable_logging.boolean'),
+            'hmac_token.max' => trans('volistx::messages.hmac_token.max'),
         ]);
     }
 
@@ -102,12 +102,12 @@ class PersonalTokensModule extends ValidationBase
             'user_id' => ['bail', 'required', 'uuid', 'exists:users,id'],
 
         ], [
-            'token_id.required' => trans('volistx::token_id.required'),
-            'token_id.uuid' => trans('volistx::token_id.uuid'),
-            'token_id.exists' => trans('volistx::token_id.exists'),
-            'user_id.required' => trans('volistx::user_id.required'),
-            'user_id.uuid' => trans('volistx::user_id.uuid'),
-            'user_id.exists' => trans('volistx::user_id.exists'),
+            'token_id.required' => trans('volistx::messages.token_id.required'),
+            'token_id.uuid' => trans('volistx::messages.token_id.uuid'),
+            'token_id.exists' => trans('volistx::messages.token_id.exists'),
+            'user_id.required' => trans('volistx::messages.user_id.required'),
+            'user_id.uuid' => trans('volistx::messages.user_id.uuid'),
+            'user_id.exists' => trans('volistx::messages.user_id.exists'),
         ]);
     }
 
@@ -119,8 +119,8 @@ class PersonalTokensModule extends ValidationBase
                 'limit' => ['bail', 'sometimes', 'integer'],
             ],
             [
-                'page.integer' => trans('volistx::page.integer'),
-                'limit.integer' => trans('volistx::limit.integer'),
+                'page.integer' => trans('volistx::messages.page.integer'),
+                'limit.integer' => trans('volistx::messages.limit.integer'),
             ]
         );
     }
@@ -132,12 +132,12 @@ class PersonalTokensModule extends ValidationBase
             'user_id' => ['bail', 'required', 'uuid', 'exists:users,id'],
 
         ], [
-            'token_id.required' => trans('volistx::token_id.required'),
-            'token_id.uuid' => trans('volistx::token_id.uuid'),
-            'token_id.exists' => trans('volistx::token_id.exists'),
-            'user_id.required' => trans('volistx::user_id.required'),
-            'user_id.uuid' => trans('volistx::user_id.uuid'),
-            'user_id.exists' => trans('volistx::user_id.exists'),
+            'token_id.required' => trans('volistx::messages.token_id.required'),
+            'token_id.uuid' => trans('volistx::messages.token_id.uuid'),
+            'token_id.exists' => trans('volistx::messages.token_id.exists'),
+            'user_id.required' => trans('volistx::messages.user_id.required'),
+            'user_id.uuid' => trans('volistx::messages.user_id.uuid'),
+            'user_id.exists' => trans('volistx::messages.user_id.exists'),
         ]);
     }
 
@@ -149,12 +149,12 @@ class PersonalTokensModule extends ValidationBase
             'user_id' => ['bail', 'required', 'uuid', 'exists:users,id'],
 
         ], [
-            'token_id.required' => trans('volistx::token_id.required'),
-            'token_id.uuid' => trans('volistx::token_id.uuid'),
-            'token_id.exists' => trans('volistx::token_id.exists'),
-            'user_id.required' => trans('volistx::user_id.required'),
-            'user_id.uuid' => trans('volistx::user_id.uuid'),
-            'user_id.exists' => trans('volistx::user_id.exists'),
+            'token_id.required' => trans('volistx::messages.token_id.required'),
+            'token_id.uuid' => trans('volistx::messages.token_id.uuid'),
+            'token_id.exists' => trans('volistx::messages.token_id.exists'),
+            'user_id.required' => trans('volistx::messages.user_id.required'),
+            'user_id.uuid' => trans('volistx::messages.user_id.uuid'),
+            'user_id.exists' => trans('volistx::messages.user_id.exists'),
         ]);
     }
 
@@ -163,9 +163,9 @@ class PersonalTokensModule extends ValidationBase
         return Validator::make($inputs, [
             'user_id' => ['required', 'uuid', 'bail', $this->db_checks ? 'exists:users,id' : ''],
         ], [
-            'user_id.required' => trans('volistx::user_id.required'),
-            'user_id.uuid' => trans('volistx::user_id.uuid'),
-            'user_id.exists' => trans('volistx::user_id.exists'),
+            'user_id.required' => trans('volistx::messages.user_id.required'),
+            'user_id.uuid' => trans('volistx::messages.user_id.uuid'),
+            'user_id.exists' => trans('volistx::messages.user_id.exists'),
         ]);
     }
 }

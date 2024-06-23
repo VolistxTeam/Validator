@@ -17,22 +17,22 @@ class PlanModule extends ValidationBase
             'tier' => ['bail', 'required', 'integer', $this->db_checks ? 'unique:plans,tier' : ''],
             'custom' => ['bail', 'required', 'boolean'],
         ], [
-            'name.required' => trans('volistx::name.required'),
-            'name.string' => trans('volistx::name.string'),
-            'tag.required' => trans('volistx::tag.required'),
-            'tag.string' => trans('volistx::tag.string'),
-            'tag.unique' => trans('volistx::tag.unique'),
-            'description.required' => trans('volistx::description.required'),
-            'description.string' => trans('volistx::description.string'),
-            'data.required' => trans('volistx::data.required'),
-            'data.array' => trans('volistx::data.array'),
-            'price.required' => trans('volistx::price.required'),
-            'price.numeric' => trans('volistx::price.numeric'),
-            'tier.required' => trans('volistx::tier.required'),
-            'tier.integer' => trans('volistx::tier.integer'),
-            'tier.unique' => trans('volistx::tier.unique'),
-            'custom.required' => trans('volistx::custom.required'),
-            'custom.boolean' => trans('volistx::custom.boolean'),
+            'name.required' => trans('volistx::messages.name.required'),
+            'name.string' => trans('volistx::messages.name.string'),
+            'tag.required' => trans('volistx::messages.tag.required'),
+            'tag.string' => trans('volistx::messages.tag.string'),
+            'tag.unique' => trans('volistx::messages.tag.unique'),
+            'description.required' => trans('volistx::messages.description.required'),
+            'description.string' => trans('volistx::messages.description.string'),
+            'data.required' => trans('volistx::messages.data.required'),
+            'data.array' => trans('volistx::messages.data.array'),
+            'price.required' => trans('volistx::messages.price.required'),
+            'price.numeric' => trans('volistx::messages.price.numeric'),
+            'tier.required' => trans('volistx::messages.tier.required'),
+            'tier.integer' => trans('volistx::messages.tier.integer'),
+            'tier.unique' => trans('volistx::messages.tier.unique'),
+            'custom.required' => trans('volistx::messages.custom.required'),
+            'custom.boolean' => trans('volistx::messages.custom.boolean'),
         ]);
     }
 
@@ -49,17 +49,17 @@ class PlanModule extends ValidationBase
             'custom' => ['bail', 'sometimes', 'boolean'],
             'is_active' => ['bail', 'sometimes', 'boolean'],
         ], [
-            'plan_id.required' => trans('volistx::plan_id.required'),
-            'plan_id.uuid' => trans('volistx::plan_id.uuid'),
-            'plan_id.exists' => trans('volistx::plan_id.exists'),
-            'name.string' => trans('volistx::name.string'),
-            'tag.unique' => trans('volistx::tag.unique'),
-            'description.string' => trans('volistx::description.string'),
-            'data.array' => trans('volistx::data.array'),
-            'price.numeric' => trans('volistx::price.numeric'),
-            'tier.integer' => trans('volistx::tier.integer'),
-            'custom.boolean' => trans('volistx::custom.required'),
-            'is_active.boolean' => trans('volistx::is_active.boolean'),
+            'plan_id.required' => trans('volistx::messages.plan_id.required'),
+            'plan_id.uuid' => trans('volistx::messages.plan_id.uuid'),
+            'plan_id.exists' => trans('volistx::messages.plan_id.exists'),
+            'name.string' => trans('volistx::messages.name.string'),
+            'tag.unique' => trans('volistx::messages.tag.unique'),
+            'description.string' => trans('volistx::messages.description.string'),
+            'data.array' => trans('volistx::messages.data.array'),
+            'price.numeric' => trans('volistx::messages.price.numeric'),
+            'tier.integer' => trans('volistx::messages.tier.integer'),
+            'custom.boolean' => trans('volistx::messages.custom.required'),
+            'is_active.boolean' => trans('volistx::messages.is_active.boolean'),
         ]);
     }
 
@@ -68,9 +68,9 @@ class PlanModule extends ValidationBase
         return Validator::make($inputs, [
             'plan_id' => ['bail', 'required', 'uuid', $this->db_checks ? 'exists:plans,id' : ''],
         ], [
-            'plan_id.required' => trans('volistx::plan_id.required'),
-            'plan_id.uuid' => trans('volistx::plan_id.uuid'),
-            'plan_id.exists' => trans('volistx::plan_id.exists'),
+            'plan_id.required' => trans('volistx::messages.plan_id.required'),
+            'plan_id.uuid' => trans('volistx::messages.plan_id.uuid'),
+            'plan_id.exists' => trans('volistx::messages.plan_id.exists'),
         ]);
     }
 
@@ -80,8 +80,8 @@ class PlanModule extends ValidationBase
             'page' => ['bail', 'sometimes', 'integer'],
             'limit' => ['bail', 'sometimes', 'integer'],
         ], [
-            'page.integer' => trans('volistx::page.integer'),
-            'limit.integer' => trans('volistx::limit.integer'),
+            'page.integer' => trans('volistx::messages.page.integer'),
+            'limit.integer' => trans('volistx::messages.limit.integer'),
         ]);
     }
 
@@ -90,9 +90,9 @@ class PlanModule extends ValidationBase
         return Validator::make($inputs, [
             'plan_id' => ['bail', 'required', 'uuid', $this->db_checks ? 'exists:plans,id' : ''],
         ], [
-            'plan_id.required' => trans('volistx::plan_id.required'),
-            'plan_id.uuid' => trans('volistx::plan_id.uuid'),
-            'plan_id.exists' => trans('volistx::plan_id.exists'),
+            'plan_id.required' => trans('volistx::messages.plan_id.required'),
+            'plan_id.uuid' => trans('volistx::messages.plan_id.uuid'),
+            'plan_id.exists' => trans('volistx::messages.plan_id.exists'),
         ]);
     }
 }

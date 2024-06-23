@@ -13,9 +13,9 @@ class AdminLogModule extends ValidationBase
         return Validator::make($inputs, [
             'log_id' => ['bail', 'required', 'uuid', $this->db_checks ? 'exists:admin_logs,id' : ''],
         ], [
-            'log_id.required' => trans('volistx::log_id.required'),
-            'log_id.uuid' => trans('volistx::log_id.uuid'),
-            'log_id.exists' => trans('volistx::log_id.exists'),
+            'log_id.required' => trans('volistx::messages.log_id.required'),
+            'log_id.uuid' => trans('volistx::messages.log_id.uuid'),
+            'log_id.exists' => trans('volistx::messages.log_id.exists'),
         ]);
     }
 
@@ -29,9 +29,9 @@ class AdminLogModule extends ValidationBase
         return Validator::make($inputs, [
             'log_id' => ['bail', 'required', 'uuid', $this->db_checks ? 'exists:admin_logs,id' : ''],
         ], [
-            'log_id.required' => trans('volistx::log_id.required'),
-            'log_id.uuid' => trans('volistx::log_id.uuid'),
-            'log_id.exists' => trans('volistx::log_id.exists'),
+            'log_id.required' => trans('volistx::messages.log_id.required'),
+            'log_id.uuid' => trans('volistx::messages.log_id.uuid'),
+            'log_id.exists' => trans('volistx::messages.log_id.exists'),
         ]);
     }
 
@@ -41,8 +41,8 @@ class AdminLogModule extends ValidationBase
             'page' => ['bail', 'sometimes', 'integer'],
             'limit' => ['bail', 'sometimes', 'integer'],
         ], [
-            'page.integer' => trans('volistx::page.integer'),
-            'limit.integer' => trans('volistx::limit.integer'),
+            'page.integer' => trans('volistx::messages.page.integer'),
+            'limit.integer' => trans('volistx::messages.limit.integer'),
         ]);
     }
 
