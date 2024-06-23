@@ -22,11 +22,7 @@ class ValidationProvider extends ServiceProvider
             $this->mergeConfigFrom(__DIR__.'/../config/volistx-validation.php', 'volistx-validation');
         }
 
-        $this->loadJsonTranslationsFrom(__DIR__ . '/../lang');
-
-        $this->publishes([
-            __DIR__ . '/../lang' => resource_path('lang/vendor/validator'),
-        ]);
+        $this->loadTranslationsFrom(__DIR__.'/Lang', 'volistx');
     }
 
     public function registerResources()
